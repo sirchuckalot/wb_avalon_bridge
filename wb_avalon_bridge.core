@@ -10,6 +10,26 @@ filesets:
       - rtl/verilog/avalon_to_wb_bridge.v
     file_type : verilogSource
 
+  tb:
+    files:
+      - bench/wb_avalon_bridge_tb.v
+      - bench/avalon_to_wb_bridge_tb.v
+      - bench/avalon_bfm_transactor.v
+    file_type: verilogSource
+    depend: [">=vlog_tb_utils-1.1", ">=wb_bfm-1.1"]
+
 targets:
   default:
     filesets: [rtl]
+
+  sim:
+    default_tool: icarus
+    filesets: [rtl, tb]
+    parameters: [transactions]
+    toplevel: wb_avalon_bridge_tb
+
+parameters:
+  transactions:
+    datatype    : int
+    description : Number of avalon transactions to run in test bench
+    paramtype   : plusarg

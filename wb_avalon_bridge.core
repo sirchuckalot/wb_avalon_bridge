@@ -6,8 +6,8 @@ description : Wishbone Avalon Bridge
 filesets:
   rtl:
     files:
-      - verilog/wb_to_avalon_bridge.v
-      - verilog/avalon_to_wb_bridge.v
+      - rtl/verilog/wb_to_avalon_bridge.v
+      - rtl/verilog/avalon_to_wb_bridge.v
     file_type : verilogSource
 
 targets:
